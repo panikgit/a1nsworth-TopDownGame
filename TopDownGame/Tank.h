@@ -39,6 +39,9 @@ private:
 	double _movementSpeed = 100000;
 	double _angle = 200000;
 
+	float _angularSpeed = 90; // degrees / second
+	float _speed = 100; // pixels / second
+
 	sf::Texture _texture;
 	sf::Sprite _sprite;
 
@@ -100,6 +103,12 @@ public:
 	void moveUp(float dt);
 
 	void moveDown(float dt);
+
+	void rotateCCW(float dt);
+	void rotateCW(float dt);
+	
+	void moveForward(float dt);
+	void moveBackward(float dt);
 };
 
 #endif //_TANK_H_

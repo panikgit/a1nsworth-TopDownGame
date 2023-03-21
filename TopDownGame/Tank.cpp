@@ -106,7 +106,7 @@ void Tank::render(sf::RenderWindow* window) const
 
 void Tank::updateDirect()
 {
-	const double angel = (_sprite.getRotation()) * M_PI / 180;
+	const double angel = 0; //(_sprite.getPosition()) * M_PI / 180; fails to build
 	setDirect(sf::Vector2f(sin(angel), cos(angel)));
 }
 
@@ -188,4 +188,28 @@ void Tank::moveUp(const float dt)
 void Tank::moveDown(const float dt)
 {
 	move(-direct_.x, direct_.y, dt);
+}
+
+void Tank::rotateCW(float dt) {
+	_sprite.rotate(_angularSpeed * dt);
+}
+
+void Tank::rotateCCW(float dt) {
+	_sprite.rotate(-_angularSpeed * dt);
+}
+
+void Tank::moveForward(float dt) {
+	float rotation = _sprite.getRotation() * M_PI / 180;
+	_sprite.move(sf::Vector2f(
+		dt * _speed * sin(rotation),
+		dt * _speed * -cos(rotation)
+	));
+}
+
+void Tank::moveBackward(float dt) {
+	float rotation = _sprite.getRotation() * M_PI / 180;
+	_sprite.move(sf::Vector2f(
+		dt * _speed * -sin(rotation),
+		dt * _speed * cos(rotation)
+	));
 }

@@ -76,7 +76,7 @@ void Game::updateEvents()
 
 void Game::updateDeltaTime()
 {
-	_deltaTime = _deltaClock.restart().asSeconds() / 700;
+	_deltaTime = _deltaClock.restart().asMilliseconds() / 1000.f;
 }
 
 void Game::render()

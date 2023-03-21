@@ -8,5 +8,6 @@ MoveDownCommand::MoveDownCommand(sf::Keyboard::Key key) : KeyCommand(key)
 }
 void MoveDownCommand::execute(Tank* t, float dt)
 {
-	t->moveDown(dt);
+	//t->moveDown(dt);
+	t->moveBackward(dt);
 }

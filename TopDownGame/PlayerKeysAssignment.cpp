@@ -23,8 +23,8 @@ PlayerKeysAssignment::PlayerKeysAssignment(const sf::Keyboard::Key left,
 
 PlayerKeysAssignment::~PlayerKeysAssignment()
 {
-	free(moveUpCommand);
-	free(moveDownCommand);
-	free(moveLeftCommand);
-	free(moveRightCommand);
+	delete moveUpCommand;
+	delete moveDownCommand;
+	delete moveLeftCommand;
+	delete moveRightCommand;
 }
